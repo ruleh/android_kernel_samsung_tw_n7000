@@ -33,7 +33,9 @@
 #if defined(CONFIG_CPU_EXYNOS4210)
 #if defined(CONFIG_FB_S5P_LD9040) || defined(CONFIG_FB_S5P_NT35560)
 #include "mdnie_table_u1.h"
-#elif defined(CONFIG_FB_S5P_S6E8AA0)
+#elif defined(CONFIG_FB_S5P_S6E8AA0_3)
+#include "mdnie_table_q1_3.h"
+#elif defined(CONFIG_FB_S5P_S6E8AA0_0)
 #include "mdnie_table_q1.h"
 #elif defined(CONFIG_FB_S5P_S6E8AB0)
 #include "mdnie_table_p8.h"
@@ -103,6 +105,7 @@
 #define MID_BRIGHTNESS_LEVEL		150
 #define LOW_BRIGHTNESS_LEVEL		30
 #define DIM_BRIGHTNESS_LEVEL		20
+#define CABC_CUTOFF_BACKLIGHT_VALUE	34
 #endif
 
 #define SCENARIO_IS_COLOR(scenario)	\
@@ -123,7 +126,7 @@ struct class *mdnie_class;
 
 struct mdnie_info *g_mdnie;
 
-#if defined(CONFIG_MACH_P4NOTE) || defined(CONFIG_MACH_KONA)
+#if defined(CONFIG_EXP_PWM)
 static struct mdnie_backlight_value b_value;
 #endif
 
@@ -232,7 +235,7 @@ exit:
 }
 
 #if defined(CONFIG_FB_MDNIE_PWM)
-#ifdef CONFIG_MACH_P4NOTE
+#ifdef CONFIG_EXP_PWM
 static int get_backlight_level_from_brightness(unsigned int brightness)
 {
 	unsigned int value;

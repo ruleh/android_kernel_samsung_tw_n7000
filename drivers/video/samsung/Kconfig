@@ -349,3 +349,19 @@ config FB_S5P_V2_TL2796
 	---help---
 	  This enables support for Samsung  TL2796 WVGA LCD panel
 endchoice
+
+
+choice
+depends on FB_S5P_S6E8AA0
+prompt "Select LCD driver"
+default FB_S5P_S6E8AA0_0
+config FB_S5P_S6E8AA0_0
+	bool "standard"
+	---help---
+	  This enables support for the standard q1 panel driver
+
+config FB_S5P_S6E8AA0_3
+	bool "experimental"
+	---help---
+	  This enables support for the experimental q1 panel driver
+endchoice

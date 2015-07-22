@@ -22,7 +22,8 @@ obj-$(CONFIG_FB_S5P_DUMMY_MIPI_LCD)	+= s3cfb_dummymipilcd.o
 ifeq ($(CONFIG_S6E8AA0_AMS465XX),y)
 obj-$(CONFIG_FB_S5P_S6E8AA0)		+= s3cfb_s6e8aa0a.o smart_dimming_s6e8aa0a.o
 else
-obj-$(CONFIG_FB_S5P_S6E8AA0)		+= s3cfb_s6e8aa0.o smart_dimming.o
+obj-$(CONFIG_FB_S5P_S6E8AA0_0)		+= s3cfb_s6e8aa0.o smart_dimming.o
+obj-$(CONFIG_FB_S5P_S6E8AA0_3)		+= s6e8aa3.o smart_dimming.o
 endif
 obj-$(CONFIG_FB_S5P_EA8061)	+= s3cfb_ea8061.o smart_dimming_ea8061.o
 obj-$(CONFIG_FB_S5P_S6EVR02)	+= s3cfb_s6evr02.o smart_dimming_s6evr02.o s3cfb_ea8061.o smart_dimming_ea8061.o
